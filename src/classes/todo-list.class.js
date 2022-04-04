@@ -7,9 +7,9 @@ export class TodoList {
     constructor() {
 
 
-        // this.todos = [];
+        //this.todos = [];
         this.cargarLocalStorage(); // Aquí carga los datos que haya en el localStorage
-
+        console.log(this.todos);
 
     }
 
@@ -63,9 +63,12 @@ export class TodoList {
         // Podemos convertir este if a operador ternario
 
 
-        this.todos = localStorage.getItem('todo') ? JSON.parse(localStorage.getItem('todo')) : [];
+        this.todos = (localStorage.getItem('todo'))
+            ? JSON.parse(localStorage.getItem('todo'))
+            : [];
 
         this.todos = this.todos.map(obj => Todo.fromJson(obj));
+
         // Aquí con el método map de arrays retorna un nuevo array con los objetos mutados. Y usamos la propiedad estática fromJson de la clase Todo que hemos importado arriba. 
 
         // Aquí también podemos simplificar esta línea, ya que tenemos el mismo argumento que envíamos.

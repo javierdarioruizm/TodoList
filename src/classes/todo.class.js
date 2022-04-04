@@ -2,7 +2,7 @@
 
 export class Todo {
 
-    static fromJson(id, tarea, completado, creado) {
+    static fromJson({ id, tarea, completado, creado }) {
         const tempTodo = new Todo(tarea);
         tempTodo.id = id;
         tempTodo.completado = completado;
